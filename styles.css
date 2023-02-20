@@ -1,0 +1,59 @@
+body {
+    margin: auto;
+    font-family: "Nunito Sans";
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    box-shadow: 0 4px 2px -2px lightgray;
+    padding: 0 2rem;
+}
+
+.search-filter-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 2rem 2rem;
+}
+
+.theme-toggle {
+    font: inherit;
+}
+
+.search {
+    height: 2rem;
+    width: 40%;
+    border: none;
+    box-shadow: 1px 1px 5px lightgrey;
+    padding-left: 3rem;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: .8rem;
+    border-radius: 5px;
+}
+
+.fa-search {
+    position: absolute;
+    left: 3rem;
+}
+
+.region {
+    height: 2rem;
+    width: 17%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 1px 5px lightgrey;
+    font-size: .8rem;
+    border-radius: 5px;
+    padding: 0 .5rem;
+}
+
+.countries-container {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+}

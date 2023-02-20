@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
     <title>Countries API</title>
+    <script src="https://kit.fontawesome.com/874b2f9b2b.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    
+    <header>
+        <h2>Where in the World?</h2>
+        <button class="theme-toggle"><i class="fa-solid fa-moon"></i> Dark Mode</button>
+    </header>
+    <div class="search-filter-container">
+        <input class="search" type="text" placeholder="Search for a Country">
+        <i class="fa-solid fa-search"></i>
+        <div class="region">Filter By Region<i class="fa-solid fa-chevron-down"></i></div>
+    </div>
+    <div class="countries-container">
+        <div class="countries">
+
+        </div>
+    </div>
 </body>
+
 </html>
