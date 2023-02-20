@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
     <title>Countries API</title>
     <script src="https://kit.fontawesome.com/874b2f9b2b.js" crossorigin="anonymous"></script>
+    <script defer src="script.js"></script>
 </head>
 
 <body>
@@ -21,6 +21,13 @@
         <input class="search" type="text" placeholder="Search for a Country">
         <i class="fa-solid fa-search"></i>
         <div class="region">Filter By Region<i class="fa-solid fa-chevron-down"></i></div>
+        <div id="filter-dropdown">
+            <p class="filter-countries">Africa</p>
+            <p class="filter-countries">America</p>
+            <p class="filter-countries">Asia</p>
+            <p class="filter-countries">Europe</p>
+            <p class="filter-countries">Oceania</p>
+        </div>
     </div>
     <div class="countries-container">
         <div class="countries">
