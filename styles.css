@@ -68,7 +68,25 @@ header {
 }
 
 .countries-container {
-    background-color: darkblue;
-    width: 100vw;
-    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: lightblue;
+    width: 100%;
+    height: 100%;
+}
+
+.countries {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 375px;
+}
+
+.countries-info {
+    padding: 0 2rem 1rem;
+    line-height: .5rem;
 }

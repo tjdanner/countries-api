@@ -1,6 +1,5 @@
 const chevronDown = document.querySelector(".fa-chevron-down");
 const filterDropdown = document.getElementById("filter-dropdown");
-const regionBox = document.querySelector(".region");
 
 toggleDropdown = () => {
     if (filterDropdown.style.display === '') {
