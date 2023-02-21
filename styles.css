@@ -1,6 +1,6 @@
 body {
-    margin: auto;
     font-family: "Nunito Sans";
+    margin: auto;
 }
 
 header {
@@ -8,15 +8,17 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 64px;
-    box-shadow: 0 4px 2px -2px lightgray;
-    padding: 0 2rem;
+    box-shadow: 0 4px 2px -2px lightgrey;
+    padding: 0 6rem;
+    position: relative;
 }
 
 .search-filter-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 2rem;
+    padding: 2rem 6rem;
+    background-color: hsl(0, 0%, 98%);
 }
 
 .theme-toggle {
@@ -37,7 +39,7 @@ header {
 
 .fa-search {
     position: absolute;
-    left: 3rem;
+    left: 7rem;
 }
 
 .region {
@@ -58,31 +60,39 @@ header {
 
 #filter-dropdown {
     position: absolute;
+    background-color: white;
     right: 2rem;
     top: 8.1rem;
-    background-color: aqua;
     width: 150px;
     border-radius: 5px;
-    padding: 0 .5rem;
     display: none;
+    cursor: pointer;
+    width: 166px;
+}
+
+.filter-regions {
+    padding: .5rem;
+    margin: 0;
 }
 
 .countries-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    row-gap: 10rem;
-    column-gap: 5rem;
-    background-color: lightblue;
-    width: 100%;
+    justify-content: space-between;
+    background-color: hsl(0, 0%, 98%);
+    width: 100vw;
     height: 100%;
+    padding: 0 6rem;
+    box-sizing: border-box;
+    row-gap: 4rem;
+    column-gap: 5%;
 }
 
 .countries {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 0;;
     background-color: white;
     border-radius: 5px;
     overflow: hidden;
