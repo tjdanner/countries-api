@@ -11,7 +11,7 @@ getCountries = (data) => {
         <img class='flagImg' src="${data.flag}" alt="${data.name} Flag.">
     </div>
     <div class="countries-info">
-        <h4>${data.name}</h4>
+        <h5>${data.name}</h5>
         <p>Population: ${data.population}</p>
         <p>Region: ${data.region}</p>
         <p>Capital: ${data.capital}</p>
@@ -69,8 +69,9 @@ for (let i = 0; i < regions.length; i++) {
     }
 };
 
+const countries = document.getElementsByClassName('countries');
+
 filterRegions = (data, region) => {
-    const countries = document.getElementsByClassName('countries');
     for (let i = 0; i < data.length; i++) {
       countries[i].style.display = ''; // reset display property
       if (data[i].region !== region) {
@@ -79,19 +80,9 @@ filterRegions = (data, region) => {
     }
   }
 
-/* filterRegions = (data) => {
-    const countries = document.getElementsByClassName('countries');
-    for (let i = 0; i < data.length; i++) {
-        regions[0].onclick = e => {
-            if (data[i].region !== 'Africa') {
-                countries[i].style.display = 'none';
-            }
-        }
-        regions[1].onclick = e => {
-            if (data[i].region !== 'America') {
-                countries[i].style.display = 'none';
-            }
-        }
-    }
-} */
+  const searchbar = document.querySelector('.searchbar');
 
+  searchbar.oninput = e => {
+    const value = e.target.value;
+    console.log(value);
+  }
