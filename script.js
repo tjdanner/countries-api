@@ -1,10 +1,65 @@
+// DOM elements
 const chevronDown = document.querySelector(".fa-chevron-down");
 const filterDropdown = document.getElementById("filter-dropdown");
 const countriesContainer = document.querySelector('.countries-container');
 const regions = document.getElementsByClassName('filter-regions');
+const countries = document.getElementsByClassName('countries');
+const searchbar = document.querySelector('.searchbar');
 
-//Fetch countries data and displays it on the page using the getCountries function:
-getCountries = (data) => {
+
+// State variables
+let countryData = [];
+
+
+// Event listeners
+const toggleDropdown = () => {
+    if (filterDropdown.style.display === '') {
+        filterDropdown.style.display = 'block';
+    } else {
+        filterDropdown.style.display = '';
+    }
+    filterDropdown.onmouseleave = e => {
+        filterDropdown.style.display = '';
+    }
+}
+chevronDown.onclick = toggleDropdown;
+
+for (let i = 0; i < regions.length; i++) {
+    regions[i].onmouseover = e => {
+        regions[i].style.border = '3px solid black';
+        regions[i].onmouseleave = e => {
+            regions[i].style.border = '';
+        }
+    }
+};
+
+searchbar.oninput = e => {
+    const value = e.target.value.trim().toLowerCase();
+    countryData.forEach(country => {
+        const isVisible = 
+        country.name && country.name.toLowerCase().includes(value) ||
+        country.capital && country.capital.toLowerCase().includes(value);
+        if (isVisible) {
+            country.element.style.display = '';
+        } else {
+            country.element.style.display = 'none';
+        }
+    })
+}
+
+
+
+// Functions
+const filterRegions = (data, region) => {
+    for (let i = 0; i < data.length; i++) {
+        countries[i].style.display = ''; // reset display property
+        if (data[i].region !== region) {
+            countries[i].style.display = 'none'; // apply filter
+        }
+    }
+}
+
+const getCountries = (data) => {
     const countryDiv = document.createElement('div');
     countryDiv.classList.add('countries');
     countryDiv.innerHTML = `<div class="country-flag">
@@ -19,16 +74,23 @@ getCountries = (data) => {
     return countryDiv;
 }
 
+
+// Fetch from countries API
 fetch('https://restcountries.com/v2/all')
     .then(res => {
         return res.json();
     })
     .then(data => {
-        const jsonData = data;
-        console.log(jsonData);
-        data.forEach(element => {
+        console.log(data);
+        countryData = data.map(element => {
             const countryDiv = getCountries(element);
             countriesContainer.appendChild(countryDiv);
+            return {
+                name: element.name,
+                region: element.region,
+                capital: element.capital,
+                element: countryDiv
+            }
         })
         regions[0].onclick = () => {
             filterRegions(data, 'Africa');
@@ -46,43 +108,7 @@ fetch('https://restcountries.com/v2/all')
         console.log(error);
     });
 
-//Event listeners:
-toggleDropdown = () => {
-    if (filterDropdown.style.display === '') {
-        filterDropdown.style.display = 'block';
-    } else {
-        filterDropdown.style.display = '';
-    }
-    filterDropdown.onmouseleave = e => {
-        filterDropdown.style.display = '';
-    }
-}
 
-chevronDown.onclick = toggleDropdown;
+// Declarations
 
-for (let i = 0; i < regions.length; i++) {
-    regions[i].onmouseover = e => {
-        regions[i].style.border = '3px solid black';
-        regions[i].onmouseleave = e => {
-            regions[i].style.border = '';
-        }
-    }
-};
 
-const countries = document.getElementsByClassName('countries');
-
-filterRegions = (data, region) => {
-    for (let i = 0; i < data.length; i++) {
-      countries[i].style.display = ''; // reset display property
-      if (data[i].region !== region) {
-        countries[i].style.display = 'none'; // apply filter
-      }
-    }
-  }
-
-  const searchbar = document.querySelector('.searchbar');
-
-  searchbar.oninput = e => {
-    const value = e.target.value;
-    console.log(value);
-  }
