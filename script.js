@@ -7,8 +7,11 @@ const countries = document.getElementsByClassName('countries');
 const searchbar = document.querySelector('.searchbar');
 
 
+
 // State variables
 let countryData = [];
+const countryName = countryData.name;
+console.log(countryName);
 
 
 // Event listeners
@@ -36,9 +39,9 @@ for (let i = 0; i < regions.length; i++) {
 searchbar.oninput = e => {
     const value = e.target.value.trim().toLowerCase();
     countryData.forEach(country => {
-        const isVisible = 
-        country.name && country.name.toLowerCase().includes(value) ||
-        country.capital && country.capital.toLowerCase().includes(value);
+        const isVisible =
+            country.name && country.name.toLowerCase().includes(value) ||
+            country.capital && country.capital.toLowerCase().includes(value);
         if (isVisible) {
             country.element.style.display = '';
         } else {
@@ -47,7 +50,23 @@ searchbar.oninput = e => {
     })
 }
 
+regions[0].onclick = () => {
+    filterRegions(countryData, 'Africa');
+}; regions[1].onclick = () => {
+    filterRegions(countryData, 'Americas');
+}; regions[2].onclick = () => {
+    filterRegions(countryData, 'Asia');
+}; regions[3].onclick = () => {
+    filterRegions(countryData, 'Europe');
+}; regions[4].onclick = () => {
+    filterRegions(countryData, 'Oceania');
+};
 
+countryName.forEach(country => {
+    country.onmouseover = e => {
+        countryName.style.color = 'red';
+    }
+})
 
 // Functions
 const filterRegions = (data, region) => {
@@ -66,7 +85,7 @@ const getCountries = (data) => {
         <img class='flagImg' src="${data.flag}" alt="${data.name} Flag.">
     </div>
     <div class="countries-info">
-        <h5>${data.name}</h5>
+        <h5 class = 'country-name'>${data.name}</h5>
         <p>Population: ${data.population}</p>
         <p>Region: ${data.region}</p>
         <p>Capital: ${data.capital}</p>
@@ -92,23 +111,8 @@ fetch('https://restcountries.com/v2/all')
                 element: countryDiv
             }
         })
-        regions[0].onclick = () => {
-            filterRegions(data, 'Africa');
-        }; regions[1].onclick = () => {
-            filterRegions(data, 'Americas');
-        }; regions[2].onclick = () => {
-            filterRegions(data, 'Asia');
-        }; regions[3].onclick = () => {
-            filterRegions(data, 'Europe');
-        }; regions[4].onclick = () => {
-            filterRegions(data, 'Africa');
-        };
     })
     .catch(error => {
         console.log(error);
     });
-
-
-// Declarations
-
 
