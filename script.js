@@ -78,7 +78,7 @@ const getCountries = (data) => {
     </div>
     <div class="countries-info">
         <h5 class = 'country-names'>${data.name}</h5>
-        <p>Population: ${data.population}</p>
+        <p>Population: ${data.population.toLocaleString()}</p>
         <p>Region: ${data.region}</p>
         <p>Capital: ${data.capital}</p>
     </div>`;
