@@ -21,10 +21,6 @@ header {
     background-color: hsl(0, 0%, 98%);
 }
 
-.theme-toggle {
-    font: inherit;
-}
-
 .searchbar {
     height: 2rem;
     width: 300px;
@@ -85,6 +81,7 @@ header {
     padding: 0 6rem;
     box-sizing: border-box;
     row-gap: 4rem;
+    padding-bottom: 4rem;
 }
 
 .countries {
@@ -98,6 +95,7 @@ header {
     height: 320px;
     width: 320px;
     border: 1px solid black;
+    transition: 500ms;
 }
 
 .country-flag {
@@ -119,6 +117,45 @@ header {
     height: 40%;
 }
 
-.countries-info h5 {
+.country-names {
     line-height: normal;
+    width: fit-content;
+}
+
+@media screen and (max-width: 500px) {
+    header {
+        padding: 0;
+        justify-content: center;
+    }
+    .search-filter-container {
+        padding: 2rem;
+    }
+    .fa-search {
+        position: absolute;
+        left: 3rem;
+    }
+
+    .region {
+        font-size: .70rem;
+    }
+
+    #filter-dropdown {
+        width: 110px;
+        right: 2rem;
+        top: 8.1rem;
+        border-radius: 5px;
+        display: none;
+        cursor: pointer;
+    }
+
+    .countries-info {
+        padding: 1rem;
+    }
+
+    .countries-info > * {
+        padding: 0;
+        text-align: center;
+        margin: auto;
+        line-height: 1.5rem;
+    }
 }

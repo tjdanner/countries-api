@@ -1,17 +1,15 @@
 // DOM elements
-const chevronDown = document.querySelector(".fa-chevron-down");
-const filterDropdown = document.getElementById("filter-dropdown");
+const chevronDown = document.querySelector('.fa-chevron-down');
+const filterDropdown = document.getElementById('filter-dropdown');
 const countriesContainer = document.querySelector('.countries-container');
 const regions = document.getElementsByClassName('filter-regions');
-const countries = document.getElementsByClassName('countries');
+let countries = document.getElementsByClassName('countries');
 const searchbar = document.querySelector('.searchbar');
-
 
 
 // State variables
 let countryData = [];
-const countryName = countryData.name;
-console.log(countryName);
+let countryNames;
 
 
 // Event listeners
@@ -62,12 +60,6 @@ regions[0].onclick = () => {
     filterRegions(countryData, 'Oceania');
 };
 
-countryName.forEach(country => {
-    country.onmouseover = e => {
-        countryName.style.color = 'red';
-    }
-})
-
 // Functions
 const filterRegions = (data, region) => {
     for (let i = 0; i < data.length; i++) {
@@ -85,7 +77,7 @@ const getCountries = (data) => {
         <img class='flagImg' src="${data.flag}" alt="${data.name} Flag.">
     </div>
     <div class="countries-info">
-        <h5 class = 'country-name'>${data.name}</h5>
+        <h5 class = 'country-names'>${data.name}</h5>
         <p>Population: ${data.population}</p>
         <p>Region: ${data.region}</p>
         <p>Capital: ${data.capital}</p>
@@ -100,7 +92,6 @@ fetch('https://restcountries.com/v2/all')
         return res.json();
     })
     .then(data => {
-        console.log(data);
         countryData = data.map(element => {
             const countryDiv = getCountries(element);
             countriesContainer.appendChild(countryDiv);
@@ -116,3 +107,5 @@ fetch('https://restcountries.com/v2/all')
         console.log(error);
     });
 
+
+console.log(countryNames);
